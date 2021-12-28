@@ -3,7 +3,11 @@ FROM ubuntu:18.04
 RUN apt update \
   && apt upgrade -y \
   && apt install -y \
-  apt-utils build-essential clang cmake gdb gdbserver openssh-server rsync
+  apt-utils build-essential clang gdb gdbserver openssh-server rsync
+
+# 安装指定版本的cmake
+RUN wget https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1-linux-x86_64.sh \
+  && sh cmake-3.22.1-linux-x86_64.sh --prefix=/usr --exclude-subdir
 
 # Taken from - https://docs.docker.com/engine/examples/running_ssh_service/#environment-variables
 RUN mkdir /var/run/sshd \
