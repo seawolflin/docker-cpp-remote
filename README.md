@@ -16,7 +16,17 @@ docker run -d --cap-add sys_ptrace -p2222:22 -p7777:7777 --name clion_remote_dev
 
 -p7777:7777指定GDB调试服务的端口映射
 
-## CLION配置
+## CLion配置（推荐）
+> CLion高版本支持直接通过docker镜像配置
+### 配置Toolchains
+到设置面板的Build, Execution, Deployment -> Toolchains。添加Docker类型的新toolchains，叫Docker。
+![](/images/clion2-step1.png)
+配置Docker server
+![](/images/clion2-step1.1.png)
+### 配置Cmake
+到设置面板的Build, Execution, Deployment -> CMake。添加新的配置，取名为Debug-Docker，Build type选择Debug，Toolchain选择前面创建的Docker。如下所示
+![](/images/clion2-step2.png)
+## CLion配置（老版本）
 ### 配置Toolchains
 到设置面板的Build, Execution, Deployment -> Toolchains。添加新的toolchains，叫Docker，如下所示，设置为Remote Host。
 ![](/images/clion-step1.png)
