@@ -2,8 +2,7 @@ FROM ubuntu:18.04
 
 RUN apt update \
   && apt upgrade -y \
-  && apt install -y \
-  apt-utils build-essential clang gdb gdbserver openssh-server rsync
+  && apt install -y apt-utils build-essential clang gdb gdbserver openssh-server rsync git
 
 # 安装指定版本的cmake
 RUN wget https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-linux-x86_64.sh \
